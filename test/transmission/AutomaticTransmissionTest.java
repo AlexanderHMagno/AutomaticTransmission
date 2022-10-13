@@ -10,6 +10,7 @@ public class AutomaticTransmissionTest {
     private Transmission bmw;
     private Transmission honda;
     private Transmission parkingCar;
+    private Transmission brokenTesla;
 
 
     @Before
@@ -17,6 +18,7 @@ public class AutomaticTransmissionTest {
 
         bmw = new AutomaticTransmission(4, 22, 129, 247, 368);
         honda = new AutomaticTransmission(2,5,10,20,80);
+        brokenTesla = new AutomaticTransmission(2,5,15,25,30);
         parkingCar = new AutomaticTransmission(2,3,4,6,7);
 
 
@@ -25,6 +27,7 @@ public class AutomaticTransmissionTest {
         while (speed > 0) {
             bmw.increaseSpeed();
             if(speed % 2 == 0) honda.increaseSpeed(); //65
+            if(speed % 3 == 0) brokenTesla.increaseSpeed(); //43
             speed--;
         }
 
@@ -51,10 +54,10 @@ public class AutomaticTransmissionTest {
      */
     @Test
     public void testToString() {
-
-        assertEquals("Transmission (speed = 130, gear = 4)", bmw.toString());
-        assertEquals("Transmission (speed = 65, gear = 5)", honda.toString());
+        assertEquals("Transmission (speed = 130, gear = 5)", bmw.toString());
+        assertEquals("Transmission (speed = 65, gear = 6)", honda.toString());
         assertEquals("Transmission (speed = 0, gear = 0)", parkingCar.toString());
+        assertEquals("Transmission (speed = 43, gear = 7)", brokenTesla.toString());
     }
 
     /**
@@ -101,7 +104,8 @@ public class AutomaticTransmissionTest {
 
         assertEquals(130, bmw.getSpeed());
         assertEquals(65, honda.getSpeed());
-        assertEquals(0, parkingCar.getGear());
+        assertEquals(0, parkingCar.getSpeed());
+        assertEquals(43, brokenTesla.getSpeed());
     }
 
     /**
@@ -110,8 +114,9 @@ public class AutomaticTransmissionTest {
     @Test
     public void getGear() {
 
-        assertEquals(4, bmw.getGear());
-        assertEquals(5, honda.getGear());
+        assertEquals(5, bmw.getGear());
+        assertEquals(6, honda.getGear());
         assertEquals(0, parkingCar.getGear());
+        assertEquals(7, brokenTesla.getGear());
     }
 }

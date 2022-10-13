@@ -67,7 +67,7 @@ public class AutomaticTransmission implements Transmission {
                 counterGear++;
             }
         }
-        return counterGear;
+        return counterGear + 1;
     }
 
     /**
