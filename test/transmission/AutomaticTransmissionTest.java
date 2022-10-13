@@ -54,10 +54,10 @@ public class AutomaticTransmissionTest {
      */
     @Test
     public void testToString() {
-        assertEquals("Transmission (speed = 130, gear = 5)", bmw.toString());
-        assertEquals("Transmission (speed = 65, gear = 6)", honda.toString());
+        assertEquals("Transmission (speed = 130, gear = 4)", bmw.toString());
+        assertEquals("Transmission (speed = 65, gear = 5)", honda.toString());
         assertEquals("Transmission (speed = 0, gear = 0)", parkingCar.toString());
-        assertEquals("Transmission (speed = 43, gear = 7)", brokenTesla.toString());
+        assertEquals("Transmission (speed = 43, gear = 6)", brokenTesla.toString());
     }
 
     /**
@@ -114,9 +114,9 @@ public class AutomaticTransmissionTest {
     @Test
     public void getGear() {
 
-        assertEquals(5, bmw.getGear());
-        assertEquals(6, honda.getGear());
+        assertEquals(4, bmw.getGear());
+        assertEquals(5, honda.getGear());
         assertEquals(0, parkingCar.getGear());
-        assertEquals(7, brokenTesla.getGear());
+        assertEquals(6, brokenTesla.getGear());
     }
 }

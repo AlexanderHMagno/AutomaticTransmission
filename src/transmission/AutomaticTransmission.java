@@ -63,11 +63,11 @@ public class AutomaticTransmission implements Transmission {
 
         for (int i = 0; i < this.gears.length ; i++) {
 
-            if(this.gears[i]<this.getSpeed()) {
+            if(this.gears[i]<=this.getSpeed()) {
                 counterGear++;
             }
         }
-        return counterGear + 1;
+        return counterGear;
     }
 
     /**
